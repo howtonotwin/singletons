@@ -49,8 +49,10 @@ following:
 * `GADTs`
 * `InstanceSigs`
 * `KindSignatures`
+* `QuantifiedConstraints`
 * `RankNTypes`
 * `ScopedTypeVariables`
+* `StandaloneDeriving`
 * `TemplateHaskell`
 * `TypeFamilies`
 * `TypeInType`

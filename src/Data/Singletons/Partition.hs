@@ -232,12 +232,12 @@ partitionDeriving mb_strat deriv_pred mb_ctxt ty data_decl =
          -- See Note [DerivedDecl] in Data.Singletons.Syntax
        | stock_or_default
        , deriv_name == showName
-      -> do -- This will become PShow/SShow instances...
-            inst_for_promotion <- mk_instance (mkShowInstance ForPromotion)
-            -- ...and this will become ShowSing/Show instances.
-            let inst_for_ShowSing = derived_decl
+      -> do -- These will become PShow/SShow instances...
+            inst_for_promotion <- mk_instance mkShowInstance
+            -- ...and this will a Show instance.
+            let inst_for_show = derived_decl
             pure $ mempty { pd_instance_decs     = [inst_for_promotion]
-                          , pd_derived_show_decs = [inst_for_ShowSing] }
+                          , pd_derived_show_decs = [inst_for_show] }
 
          -- If we can't find a stock class, but the user bothered to use an
          -- explicit stock keyword, we can at least warn them about it.
